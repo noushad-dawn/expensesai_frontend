@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Plus, Trash2, Edit2, Check, X, Wallet, Calendar } from 'lucide-react';
+import { getErrorMessage } from '../services/api';
 
 const months = [
   { value: 1, label: 'January' },
@@ -55,7 +55,7 @@ const SalaryCard = ({ salaries, onAdd, onUpdate, onDelete }) => {
       setTimeout(() => setSuccess(''), 3000);
       setIsModalOpen(false);
     } catch (err) {
-      setError(err.response?.data?.error || 'Failed to add salary');
+      setError(getErrorMessage(err, 'Failed to add salary'));
     }
   };
 
@@ -78,7 +78,7 @@ const SalaryCard = ({ salaries, onAdd, onUpdate, onDelete }) => {
       });
       setEditingId(null);
     } catch (err) {
-      alert(err.response?.data?.error || 'Failed to update salary');
+      alert(getErrorMessage(err, 'Failed to update salary'));
     }
   };
 

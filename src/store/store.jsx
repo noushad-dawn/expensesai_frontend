@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import API from '../services/api';
+import API, { getErrorMessage } from '../services/api';
 
 const AppContext = createContext();
 
@@ -139,7 +139,7 @@ export const AppProvider = ({ children }) => {
       const res = await API.post('/ai/analyze');
       setAiData(res.data.data);
     } catch (error) {
-      setAiError(error.response?.data?.error || 'AI recommendations service failed');
+      setAiError(getErrorMessage(error, 'AI recommendations service failed'));
     } finally {
       setAiLoading(false);
     }

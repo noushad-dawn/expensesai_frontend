@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { getErrorMessage } from '../services/api';
 
 const categories = [
   'Food',
@@ -52,7 +52,7 @@ const ExpenseForm = ({ onSubmit, onClose, expense = null }) => {
       });
       onClose();
     } catch (err) {
-      setError(err.response?.data?.error || 'Failed to submit expense');
+      setError(getErrorMessage(err, 'Failed to submit expense'));
     } finally {
       setSubmitting(false);
     }

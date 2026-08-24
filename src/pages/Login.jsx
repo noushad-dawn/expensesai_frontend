@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BrainCircuit, Mail, Lock, LogIn } from 'lucide-react';
 import { useApp } from '../store/store';
+import { getErrorMessage } from '../services/api';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -25,7 +26,7 @@ const Login = () => {
       await login(email, password);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.error || 'Invalid credentials');
+      setError(getErrorMessage(err, 'Invalid credentials'));
     } finally {
       setSubmitting(false);
     }

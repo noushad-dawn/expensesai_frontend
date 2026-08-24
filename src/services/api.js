@@ -22,4 +22,29 @@ API.interceptors.request.use(
   }
 );
 
+export const getErrorMessage = (err, defaultMessage = 'An unexpected error occurred') => {
+  if (!err) return defaultMessage;
+
+  // Extract error info from backend JSON responses
+  const responseData = err.response?.data;
+  if (responseData) {
+    // If response contains direct error field
+    if (responseData.error) {
+      if (typeof responseData.error === 'string') {
+        return responseData.error;
+      }
+      if (typeof responseData.error === 'object') {
+        return responseData.error.message || responseData.error.error || JSON.stringify(responseData.error);
+      }
+    }
+    // If response contains message field
+    if (responseData.message && typeof responseData.message === 'string') {
+      return responseData.message;
+    }
+  }
+
+  // Fallback to Axios error message or standard error message
+  return err.message || defaultMessage;
+};
+
 export default API;

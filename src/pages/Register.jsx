@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BrainCircuit, User, Mail, Lock, UserPlus } from 'lucide-react';
 import { useApp } from '../store/store';
+import { getErrorMessage } from '../services/api';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -30,7 +31,7 @@ const Register = () => {
       await register(name, email, password);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.error || 'Registration failed');
+      setError(getErrorMessage(err, 'Registration failed'));
     } finally {
       setSubmitting(false);
     }
