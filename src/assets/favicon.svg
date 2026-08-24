@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Background Gradient: Brand Gold -->
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2D1B0" />
+      <stop offset="50%" stop-color="#C8A96B" />
+      <stop offset="100%" stop-color="#9C7D41" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded gold square background (represents premium finance) -->
+  <rect width="512" height="512" rx="128" fill="url(#gold-grad)" />
+
+  <!-- Brain Circuit in Brand Forest (#17221B) -->
+  <g transform="translate(64, 64) scale(16)" stroke="#17221B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+    <path d="M12 5h4a2 2 0 0 1 2 2v1" />
+    <path d="M16 8a2 2 0 1 0 0 4h4" />
+    <path d="M12 12h1" />
+    <path d="M12 16h4.5a2.5 2.5 0 0 1 0 5H12" />
+    <path d="M16.5 16a2.5 2.5 0 0 0 0-5H16" />
+    <path d="M12 5v14" />
+  </g>
+</svg>
