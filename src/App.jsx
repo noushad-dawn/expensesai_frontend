@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
       {/* Main layout frame */}
       <div className="flex-1 flex flex-col lg:pl-64 min-h-screen pb-20 sm:pb-0">
         <Navbar toggleSidebar={toggleSidebar} />
-        <main className="flex-1 p-4 sm:p-6 overflow-y-auto max-w-7xl w-full mx-auto">
+        <main className="flex-1 p-4 sm:p-6 overflow-y-auto max-w-full w-full mx-auto">
           {children}
         </main>
       </div>
