@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Plus, Trash2, Edit2, Check, X, Wallet, Calendar } from 'lucide-react';
 import { getErrorMessage } from '../services/api';
 
